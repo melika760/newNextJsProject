@@ -1,9 +1,16 @@
-import Image from "next/image";
-
-export default function Home() {
+import Slider from "./_components/Slider";
+import globalapi from "./_utils/globalapi";
+import Categorylist from "./_components/Categorylist";
+import ProductList from "./_components/ProductList";
+export default async function Home() {
+  const sliderlist=await globalapi.getSlider();
+  const categorylist=await globalapi.getCategoryList();
+  const productlist=await globalapi.getProductList()
   return (
-    <div>
-      <h2>Hi mell</h2>
+    <div className="p-5 md:p-12 px-16">
+     <Slider sliderlist={sliderlist}/>
+     <Categorylist categorylist={categorylist} />
+     <ProductList productlist={productlist}/>
     </div>
   );
 }
