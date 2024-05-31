@@ -1,5 +1,5 @@
 {
-  "/(routs)/product-categories/[CategoryName]/page": "app/(routs)/product-categories/[CategoryName]/page.js",
-  "/(routs)/Checkout/page": "app/(routs)/Checkout/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(routs)/product-categories/[CategoryName]/page": "app/(routs)/product-categories/[CategoryName]/page.js"
 }
