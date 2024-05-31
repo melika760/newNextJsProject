@@ -9,6 +9,7 @@ import globalapi from '@/app/_utils/globalapi'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 import { LoaderIcon } from 'lucide-react'
+import { getCookie, setCookie } from 'cookies-next'
 
 const SignIn = () => {
 const {value:email,ValueIsvalid:EmailIsvalid, hasError:EmailHasError,Changehandler:EmailChange,Blurhandler:EmailBlur}=useInput(value=>value.includes("@"));
@@ -16,7 +17,7 @@ const {value:password,ValueIsvalid:PasswordIsvalid, hasError:PasswordHasError,Ch
 const router=useRouter()
 const[loader,setloader]=useState()
 useEffect(()=>{
-    const jwt=sessionStorage.getItem("jwt")
+    const jwt=getCookie("jwt")
     if(jwt){
         router.push("/")
     }
@@ -24,8 +25,8 @@ useEffect(()=>{
 const onSignIn=()=>{
     setloader(true)
     globalapi.SignIn(email,password).then(resp=>{
-        sessionStorage.setItem("user",JSON.stringify(resp.data.user))
-        sessionStorage.setItem("jwt",JSON.stringify(resp.data.jwt))
+        setCookie("user",JSON.stringify(resp.data.user))
+        setCookie("jwt",JSON.stringify(resp.data.jwt))
         toast("LogIn Successfully")
         router.push('/')
         setloader(false)

@@ -26,14 +26,15 @@ import {
 } from "@/components/ui/sheet"
 import CartItems from './CartItems'
 import { toast } from 'sonner'
+import { getCookie } from 'cookies-next'
   
 const Header = () => {
-  const jwt=sessionStorage.getItem("jwt");
-  const user=JSON.parse(sessionStorage.getItem("user"));
+  const jwt=getCookie("jwt");
+  const user=JSON.parse(getCookie("user"));
   const[categorylist,setcategorylist]=useState([]);
   const[cartItemsLists,setcartItemslist]=useState([])
   const { updatedcart, setupdatedcart, cartItems, setCartItems } = useContext(UpdatedCartContext);
-  const isLogin=sessionStorage.getItem("jwt")?true:false
+  const isLogin=getCookie("jwt")?true:false
   const[totalitems,setTotalItems]=useState(0);
   const[Subtotal,setSubtotal]=useState(0)
   const router=useRouter();
