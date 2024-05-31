@@ -1,8 +1,5 @@
 {
   "/page": "app/page.js",
-  "/(routs)/my-order/page": "app/(routs)/my-order/page.js",
-  "/(routs)/product-categories/[CategoryName]/page": "app/(routs)/product-categories/[CategoryName]/page.js",
-  "/(auth)/signin/page": "app/(auth)/signin/page.js",
-  "/(routs)/order-confirmation/page": "app/(routs)/order-confirmation/page.js",
-  "/(routs)/Checkout/page": "app/(routs)/Checkout/page.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/(routs)/product-categories/[CategoryName]/page": "app/(routs)/product-categories/[CategoryName]/page.js"
 }
