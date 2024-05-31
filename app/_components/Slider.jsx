@@ -14,7 +14,7 @@ const Slider = ({sliderlist}) => {
   <CarouselContent>
    {sliderlist.map((slider,index)=>(
      <CarouselItem key={index}>
-        <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL+slider.attributes?.image?.data[0]?.attributes?.url} width={1000} height={450} alt='slider' className='w-full  h-[200px] md:h-[450px] object-cover rounded'/>
+        <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL+slider.attributes?.image?.data[0]?.attributes?.url} width={1000} height={450} alt='slider' className=' h-[150px] md:h-[550px] w-full object-cover rounded'/>
      </CarouselItem>
    ))}
    
