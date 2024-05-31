@@ -1,6 +1,6 @@
 const {default:axios}=require("axios");
 const axiosClient=axios.create({
-    baseURL:"http://localhost:1337/api"
+    baseURL:"https://groceryadmin.onrender.com/api"
 })
 const getCategory=()=>axiosClient.get("/categories/?populate=*");
 const getSlider=()=>axiosClient.get("/sliders/?populate=*").then(resp=>{

@@ -30,6 +30,7 @@ globalapi.register(username,email,password).then(resp=>{
   
     setCookie("user",JSON.stringify(resp.data.user))
     setCookie("jwt",JSON.stringify(resp.data.jwt))
+    
     toast("Account created successfully")
     setloader(false)
     router.push("/")

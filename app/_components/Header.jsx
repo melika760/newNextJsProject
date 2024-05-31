@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/sheet"
 import CartItems from './CartItems'
 import { toast } from 'sonner'
-import { getCookie } from 'cookies-next'
+import { deleteCookie, getCookie } from 'cookies-next'
   
 const Header = () => {
   const jwt=getCookie("jwt");
@@ -49,13 +49,16 @@ const Header = () => {
         getCategoryList();
     },[]);
     useEffect(()=>{
+      
       getItems();
   },[updatedcart])
 
 
 const getItems=async()=>{
+  const userId=user.id.toString()
+  console.log(userId)
   if(!jwt){return;}
-const cartItemList=await globalapi.getItems(user.id,jwt);
+const cartItemList=await globalapi.getItems(userId,jwt);
 console.log(cartItemList)
 setcartItemslist(cartItemList)
 setTotalItems(cartItemList?.length)
@@ -75,7 +78,7 @@ const DeleteItem=(id)=>{
 
 }
 const onSignOut=()=>{
-  sessionStorage.clear();
+  deleteCookie("jwt","user");
   router.push("/signin")
 }
   return (

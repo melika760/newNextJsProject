@@ -25,7 +25,8 @@ const ProductDetails = ({ product }) => {
   },[updatedcart])
   const getItems=async()=>{
     if(!jwt){return;}
-  const cartItemList=await globalapi.getItems(user.id,jwt);
+    const userId=user.id.toString()
+  const cartItemList=await globalapi.getItems(userId,jwt);
  setcartItemlists(cartItemList)
   
   }
