@@ -30,7 +30,16 @@ import { deleteCookie, getCookie } from 'cookies-next'
   
 const Header = () => {
   const jwt=getCookie("jwt");
-  const user=JSON.parse(getCookie("user"));
+  let user = null;
+  const userCookie = getCookie("user");
+  
+  if (userCookie) {
+    try {
+      user = JSON.parse(userCookie);
+    } catch (error) {
+      console.error("Error parsing user cookie:", error);
+    }
+  }
   const[categorylist,setcategorylist]=useState([]);
   const[cartItemsLists,setcartItemslist]=useState([])
   const { updatedcart, setupdatedcart, cartItems, setCartItems } = useContext(UpdatedCartContext);
@@ -55,8 +64,7 @@ const Header = () => {
 
 
 const getItems=async()=>{
-  const userId=user.id.toString()
-  console.log(userId)
+  const userId=user.id.toString();
   if(!jwt){return;}
 const cartItemList=await globalapi.getItems(userId,jwt);
 console.log(cartItemList)
@@ -78,7 +86,8 @@ const DeleteItem=(id)=>{
 
 }
 const onSignOut=()=>{
-  deleteCookie("jwt","user");
+  deleteCookie("jwt");
+    deleteCookie("user");
   router.push("/signin")
 }
   return (

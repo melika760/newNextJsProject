@@ -17,7 +17,16 @@ const {value:Phone,ValueIsvalid:PhoneIsvalid, hasError:PhoneHasError,Changehandl
 const {value:Zip,ValueIsvalid:ZipIsvalid, hasError:ZipHasError,Changehandler:ZipChange,Blurhandler:ZipBlur}=useInput(value=>{if(value.trim()===""||value.trim().length<6){return false;}else{return true;}});  
 const {value:Address,ValueIsvalid:AddressIsvalid, hasError:AddressHasError,Changehandler:AddressChange,Blurhandler:AddressBlur}=useInput(value=>value.trim()!=="");
 const jwt=getCookie("jwt");
- const user=JSON.parse(getCookie("user"));
+let user = null;
+const userCookie = getCookie("user");
+
+if (userCookie) {
+  try {
+    user = JSON.parse(userCookie);
+  } catch (error) {
+    console.error("Error parsing user cookie:", error);
+  }
+}
   const[cartItemsLists,setcartItemslist]=useState([]);
   const[totalitems,setTotalItems]=useState(0);
   const[Subtotal,setSubtotal]=useState(0);

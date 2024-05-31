@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode:false,
     images:{
-        remotePatterns:["groceryadmin.onrender.com"]
+        domains:["groceryadmin.onrender.com"]
 
     },
 
