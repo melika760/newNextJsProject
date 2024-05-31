@@ -9,11 +9,12 @@ import {
 } from "@/components/ui/collapsible"
 import moment from 'moment';
 import MyOrderItem from './_components/MyOrderItem'
+import { getCookie } from 'cookies-next'
 
 
 const MyOrder = () => {
-const jwt=sessionStorage.getItem("jwt")
-const user=JSON.parse(sessionStorage.getItem("user"))
+const jwt=getCookie("jwt")
+const user=JSON.parse(getCookie("user"))
 const[orderItems,setOrderItems]=useState([])
 const router=useRouter()
 useEffect(()=>{

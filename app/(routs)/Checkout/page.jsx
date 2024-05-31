@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import { PayPalButtons } from '@paypal/react-paypal-js'
 import { toast } from 'sonner'
 import { UpdatedCartContext } from '@/app/_context/UpdatedCartContext'
+import { getCookie } from 'cookies-next'
 
 const Checkout = () => {
 const {value:name,ValueIsvalid:NameIsvalid, hasError:NameHasError,Changehandler:NameChange,Blurhandler:NameBlur}=useInput(value=>value.trim()!=="");
@@ -15,8 +16,8 @@ const {value:email,ValueIsvalid:EmailIsvalid, hasError:EmailHasError,Changehandl
 const {value:Phone,ValueIsvalid:PhoneIsvalid, hasError:PhoneHasError,Changehandler:PhoneChange,Blurhandler:PhoneBlur}=useInput(value=>{if(value.trim()===""||value.trim().length<10){return false;}else{return true;}});  
 const {value:Zip,ValueIsvalid:ZipIsvalid, hasError:ZipHasError,Changehandler:ZipChange,Blurhandler:ZipBlur}=useInput(value=>{if(value.trim()===""||value.trim().length<6){return false;}else{return true;}});  
 const {value:Address,ValueIsvalid:AddressIsvalid, hasError:AddressHasError,Changehandler:AddressChange,Blurhandler:AddressBlur}=useInput(value=>value.trim()!=="");
-const jwt=sessionStorage.getItem("jwt");
- const user=JSON.parse(sessionStorage.getItem("user"));
+const jwt=getCookie("jwt");
+ const user=JSON.parse(getCookie("user"));
   const[cartItemsLists,setcartItemslist]=useState([]);
   const[totalitems,setTotalItems]=useState(0);
   const[Subtotal,setSubtotal]=useState(0);
