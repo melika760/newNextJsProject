@@ -11,7 +11,16 @@ import { getCookie } from 'cookies-next';
 
 const ProductDetails = ({ product }) => {
   const jwt = getCookie("jwt");
-  const user = JSON.parse(getCookie("user"));
+  let user = null;
+  const userCookie = getCookie("user");
+  
+  if (userCookie) {
+    try {
+      user = JSON.parse(userCookie);
+    } catch (error) {
+      console.error("Error parsing user cookie:", error);
+    }
+  }
   const { updatedcart, setupdatedcart, cartItems, setCartItems } = useContext(UpdatedCartContext);
   const [loading, setloading] = useState(false);
   const [totalprice, setTotalprice] = useState(product.attributes.Sellingprice ?
