@@ -10,7 +10,7 @@ const CartItems = ({cartItemsLists,DeleteItem}) => {
          <div className='flex justify-between items-center p-2 mb-5' key={index}>
                <div className='flex gap-6 items-center'>
                 <div>
-                  <Image src={process.env.NEXT_PUBLIC_BACKEND_BASE_URL+item.image} width={70} height={70} alt={item.name} className='border p-2 shadow-sm'/>
+                  <Image src={item.image} width={70} height={70} alt={item.name} className='border p-2 shadow-sm'/>
                 </div>
               <div>
               <h2 className='font-bold'>{item.name}</h2>

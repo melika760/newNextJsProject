@@ -64,8 +64,8 @@ const Header = () => {
 
 
 const getItems=async()=>{
-  const userId=user.id.toString();
   if(!jwt){return;}
+  const userId=user.id.toString();
 const cartItemList=await globalapi.getItems(userId,jwt);
 console.log(cartItemList)
 setcartItemslist(cartItemList)
