@@ -115,10 +115,7 @@ const onSignOut=()=>{
   </DropdownMenuContent>
 </DropdownMenu>
 
- <div className='md:flex gap-3 items-center p-2 border rounded-full px-5 hidden'>
-                <Search/>
-                <input type='text' placeholder='search' className='outline-none'/>
-            </div>
+
       </div>
       <div className='flex gap-5 items-center'>
       <Sheet>
