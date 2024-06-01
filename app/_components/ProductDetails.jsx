@@ -116,7 +116,7 @@ const ProductDetails = ({ product }) => {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 p-7 text-black bg-white'>
       <Image src={product.attributes?.images?.data[0]?.attributes?.url} alt='productDetail' width={300} height={300} className='p-5 h-[320px] w-[300px] object-contain rounded-3xl border shadow-md' />
-      <div className='flex flex-col gap-3'>
+      <div className='flex flex-col gap-3 items-center mt-4'>
         <h2 className='text-2xl font-bold'>{product.attributes.name}</h2>
         <h2 className='text-small text-gray-500'>{product.attributes.description}</h2>
         <div className='flex gap-3'>
