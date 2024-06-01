@@ -14,7 +14,16 @@ import { getCookie } from 'cookies-next'
 
 const MyOrder = () => {
 const jwt=getCookie("jwt")
-const user=JSON.parse(getCookie("user"))
+let user = null;
+const userCookie = getCookie("user");
+
+if (userCookie) {
+  try {
+    user = JSON.parse(userCookie);
+  } catch (error) {
+    console.error("Error parsing user cookie:", error);
+  }
+}
 const[orderItems,setOrderItems]=useState([])
 const router=useRouter()
 useEffect(()=>{
