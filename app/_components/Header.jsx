@@ -105,7 +105,7 @@ const onSignOut=()=>{
     return(
       <Link href={"/product-categories/"+category.attributes?.name} key={index}>
       <DropdownMenuItem className="flex gap-2 items-center cursor-pointer" >
-        <Image src={`${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}${category?.attributes?.icon?.data[0]?.attributes?.url}`} alt='Category' width={23} height={23}
+        <Image src={category?.attributes?.icon?.data[0]?.attributes?.url} alt='Category' width={23} height={23}
         />
         <h2 className='text-lg'>{category?.attributes?.name}</h2>
         </DropdownMenuItem>
