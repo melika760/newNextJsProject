@@ -93,35 +93,7 @@ setcartItemslist("")
     <div>
       <h2 className='bg-primary p-3 text-xl font-bold text-center text-white'>Checkout</h2>
       <div className='p-5 px-5 md:px-10 grid grid-cols-1 md:grid-cols-3 py-8'>
-<div className='mx-10 border'>
-  <h2 className='p-3 bg-gray-200 font-bold text-center'>Total Cart ({totalitems})</h2>
-<div className='p-4 flex flex-col gap-4'>
-<h2 className='font-bold flex justify-between'>Subtotal:<span>${Subtotal}</span></h2>
-<hr></hr>
-<h2 className='flex justify-between'>Delivery : <span>$15.00</span></h2>
-<h2 className='flex justify-between'>Tax (9%) : <span>${(Subtotal*0.09).toFixed(2)}</span></h2>
-<hr></hr>
-<h2 className='flex justify-between font-bold'>Total : <span>${calculation()}</span></h2>
-{/* <Button onClick={()=>onApprove({paymentID:"123445"})}>Check</Button> */}
-{TotalAmount>15 &&<PayPalButtons style={{layout:"horizontal"}}
-disabled={!NameIsvalid||!EmailIsvalid||!ZipIsvalid||!PhoneIsvalid||!AddressIsvalid}
-onApprove={onApprove}
-createOrder={(data,actions)=>{
-  return actions.order.create({
-    purchase_units:[
-      {
-        amount:{
-          value:TotalAmount,
-          currency_code:"USD"
-        }
-      }
-    ]
-  })
-}}/>}
-
-</div>
-</div>
-<div className='md:col-span-2 mx-20  mt-8'>
+      <div className='md:col-span-2 mx-20  mt-8'>
 <h2 className='font-bold text-3xl'>Billing Details</h2>
 <div className='grid sm:grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-10 mt-3 '>
 <div className='flex flex-col justify-between gap-2'>
@@ -148,6 +120,35 @@ createOrder={(data,actions)=>{
 {AddressHasError && <p className='text-red-500 text-md'>Please Enter Your Address</p>}
 </div>
 </div>
+<div className='mx-10 border'>
+  <h2 className='p-3 bg-gray-200 font-bold text-center'>Total Cart ({totalitems})</h2>
+<div className='p-4 flex flex-col gap-4'>
+<h2 className='font-bold flex justify-between'>Subtotal:<span>${Subtotal}</span></h2>
+<hr></hr>
+<h2 className='flex justify-between'>Delivery : <span>$15.00</span></h2>
+<h2 className='flex justify-between'>Tax (9%) : <span>${(Subtotal*0.09).toFixed(2)}</span></h2>
+<hr></hr>
+<h2 className='flex justify-between font-bold'>Total : <span>${calculation()}</span></h2>
+
+{TotalAmount>15 &&<PayPalButtons style={{layout:"horizontal"}}
+disabled={!NameIsvalid||!EmailIsvalid||!ZipIsvalid||!PhoneIsvalid||!AddressIsvalid}
+onApprove={onApprove}
+createOrder={(data,actions)=>{
+  return actions.order.create({
+    purchase_units:[
+      {
+        amount:{
+          value:TotalAmount,
+          currency_code:"USD"
+        }
+      }
+    ]
+  })
+}}/>}
+
+</div>
+</div>
+
       </div>
     </div>
   )
