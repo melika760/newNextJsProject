@@ -93,33 +93,6 @@ setcartItemslist("")
     <div>
       <h2 className='bg-primary p-3 text-xl font-bold text-center text-white'>Checkout</h2>
       <div className='p-5 px-5 md:px-10 grid grid-cols-1 md:grid-cols-3 py-8'>
-      <div className='md:col-span-2 mx-20  mt-8'>
-<h2 className='font-bold text-3xl'>Billing Details</h2>
-<div className='grid sm:grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-10 mt-3 '>
-<div className='flex flex-col justify-between gap-2'>
-<Input placeholder="Name" value={name} onChange={NameChange} onBlur={NameBlur} className={NameHasError?"border-red-500 bg-red-50 ":""}/>
-{NameHasError && <p className='text-red-500 text-md'>Please Enter Your Name</p>}
-</div>
-<div className='flex flex-col justify-between gap-2'>
-<Input type="email" placeholder="Email" value={email} onChange={EmailChange} onBlur={EmailBlur} className={EmailHasError?"border-red-500 bg-red-50":""}/>
-{EmailHasError && <p className='text-red-500 text-md'>Please Enter Your Email</p>}
-</div>
-</div>
-<div className='grid sm:grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-10 mt-3 '>
-<div className='flex flex-col justify-between gap-2'>
-<Input placeholder="phone" value={Phone} onChange={PhoneChange} onBlur={PhoneBlur} className={PhoneHasError?"border-red-500 bg-red-50":""}/>
-{PhoneHasError && <p className='text-red-500 text-md'>Please Enter Your Phone Number</p>}
-</div>
-<div className='flex flex-col justify-between gap-2'>
-<Input placeholder="Zip" value={Zip} onChange={ZipChange} onBlur={ZipBlur} className={ZipHasError?"border-red-500 bg-red-50":""}/>
-{ZipHasError && <p className='text-red-500 text-md'>Please Enter Your Zipcode</p>}
-</div>
-</div>
-<div className='mt-3'>
-<Input placeholder="Address"  value={Address} onChange={AddressChange} onBlur={AddressBlur} className={AddressHasError?"border-red-500 bg-red-50":""} />
-{AddressHasError && <p className='text-red-500 text-md'>Please Enter Your Address</p>}
-</div>
-</div>
 <div className='mx-10 border'>
   <h2 className='p-3 bg-gray-200 font-bold text-center'>Total Cart ({totalitems})</h2>
 <div className='p-4 flex flex-col gap-4'>
@@ -148,7 +121,33 @@ createOrder={(data,actions)=>{
 
 </div>
 </div>
-
+<div className='md:col-span-2 mx-20  mt-8'>
+<h2 className='font-bold text-3xl'>Billing Details</h2>
+<div className='grid sm:grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-10 mt-3 '>
+<div className='flex flex-col justify-between gap-2'>
+<Input placeholder="Name" value={name} onChange={NameChange} onBlur={NameBlur} className={NameHasError?"border-red-500 bg-red-50 ":""}/>
+{NameHasError && <p className='text-red-500 text-md'>Please Enter Your Name</p>}
+</div>
+<div className='flex flex-col justify-between gap-2'>
+<Input type="email" placeholder="Email" value={email} onChange={EmailChange} onBlur={EmailBlur} className={EmailHasError?"border-red-500 bg-red-50":""}/>
+{EmailHasError && <p className='text-red-500 text-md'>Please Enter Your Email</p>}
+</div>
+</div>
+<div className='grid sm:grid-cols-1 gap-3 lg:grid-cols-2 lg:gap-10 mt-3 '>
+<div className='flex flex-col justify-between gap-2'>
+<Input placeholder="phone" value={Phone} onChange={PhoneChange} onBlur={PhoneBlur} className={PhoneHasError?"border-red-500 bg-red-50":""}/>
+{PhoneHasError && <p className='text-red-500 text-md'>Please Enter Your Phone Number</p>}
+</div>
+<div className='flex flex-col justify-between gap-2'>
+<Input placeholder="Zip" value={Zip} onChange={ZipChange} onBlur={ZipBlur} className={ZipHasError?"border-red-500 bg-red-50":""}/>
+{ZipHasError && <p className='text-red-500 text-md'>Please Enter Your Zipcode</p>}
+</div>
+</div>
+<div className='mt-3'>
+<Input placeholder="Address"  value={Address} onChange={AddressChange} onBlur={AddressBlur} className={AddressHasError?"border-red-500 bg-red-50":""} />
+{AddressHasError && <p className='text-red-500 text-md'>Please Enter Your Address</p>}
+</div>
+</div>
       </div>
     </div>
   )
